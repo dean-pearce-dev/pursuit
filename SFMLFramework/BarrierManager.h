@@ -1,0 +1,76 @@
+#ifndef BARRIERMANAGER_H
+#define BARRIERMANAGER_H
+
+namespace sf
+{
+	class RenderWindow;
+}
+
+class TextureManager;
+
+class Barrier;
+class ReferenceManager;
+
+class BarrierManager
+{
+private:
+	sf::RenderWindow* m_pWindow;
+
+	TextureManager* m_pTextureManager;
+
+	Barrier* m_pBarrierArray;
+
+public:
+	BarrierManager();
+	~BarrierManager();
+
+	/////////////////////////////////////////////////////////////////////
+	/// Function/Functions: update
+	/// Parameters: float deltaTime
+	/// Returns: void
+	/// Purpose: Updates the object
+	//////////////////////////////////////////////////////////////////////
+	void update( float deltaTime );
+
+	//////////////////////////////////////////////////////////////////////
+	/// Function/Functions: draw
+	/// Parameters: none
+	/// Returns: void
+	/// Purpose: Draws the object
+	//////////////////////////////////////////////////////////////////////
+	void draw();
+
+	//////////////////////////////////////////////////////////////////////
+	/// Function/Functions: init
+	/// Parameters: const ReferenceManager& refManager
+	/// Returns: void
+	/// Purpose: Initialises the object
+	//////////////////////////////////////////////////////////////////////
+	void init( const ReferenceManager& refManager );
+
+	//////////////////////////////////////////////////////////////////////
+	/// Function/Functions: getBarrierByIndex
+	/// Parameters: const int index
+	/// Returns: Barrier&
+	/// Purpose: Returns a barrier by the index num
+	//////////////////////////////////////////////////////////////////////
+	Barrier& getBarrierByIndex( const int index );
+
+	//////////////////////////////////////////////////////////////////////
+	/// Function/Functions: getBarrierAmount
+	/// Parameters: none
+	/// Returns: void
+	/// Purpose: Returns the amount of total barriers
+	//////////////////////////////////////////////////////////////////////
+	const int getBarrierAmount();
+
+	//////////////////////////////////////////////////////////////////////
+	/// Function/Functions: reset
+	/// Parameters: none
+	/// Returns: void
+	/// Purpose: Resets the object
+	//////////////////////////////////////////////////////////////////////
+	void reset();
+};
+
+#endif // End of '#ifndef BARRIERMANAGER_H'
